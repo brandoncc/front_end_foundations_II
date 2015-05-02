@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Calculator</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="javascripts/calculator.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <h1>Calculator</h1>
+      <form action="/" method="GET">
+        <fieldset>
+          <div id="result">
+          </div>
+        </fieldset>
+        <fieldset>
+          <label for="firstNumber">First number</label>
+          <input type="number" id="firstNumber" />
+        </fieldset>
+        <fieldset>
+          <label for="secondNumber">Second number</label>
+          <input type="number" id="secondNumber" />
+        </fieldset>
+        <fieldset>
+          <select id="operation">
+            <option>Add</option>
+            <option>Subtract</option>
+            <option>Multiply</option>
+            <option>Divide</option>
+          </select>
+        </fieldset>
+        <fieldset id="actions">
+          <button type="submit">Calculate</button>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
