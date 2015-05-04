@@ -1,15 +1,19 @@
-$(document).ready(function() {
+function init() {
   var firstNumber,
       secondNumber,
       operation;
   var result = 0;
+  var form = document.getElementById('form');
 
-  $('form').submit(function(e) {
+  form.onsubmit = function(e) {
     e.preventDefault();
-
-    firstNumber = +$('#firstNumber').val();
-    secondNumber = +$('#secondNumber').val();
-    operation = $('#operation').val();
+    var resultDisplay = document.getElementById('result');
+    var firstNumberInput = document.getElementById('firstNumber');
+    var secondNumberInput = document.getElementById('secondNumber');
+    var operationInput = document.getElementById('operation');
+    firstNumber = +firstNumberInput.value;
+    secondNumber = +secondNumberInput.value;
+    operation = operationInput.value;
 
     if (operation == 'Add') {
       result = add(firstNumber, secondNumber);
@@ -21,12 +25,15 @@ $(document).ready(function() {
       result = divide(firstNumber, secondNumber);
     }
 
-    $('#result').show();
-    $('#result').text('Result: ' + result);
-    $('#secondNumber').val('');
-    $('#firstNumber').val('').focus();
-  });
-});
+    resultDisplay.setAttribute('style', 'display: block;');
+    document.getElementById('result').innerText = 'Result: ' + result;
+
+    firstNumberInput.value = '';
+    secondNumberInput.value = '';
+    operationInput.value = 'Add';
+    firstNumberInput.focus();
+  };
+}
 
 add = function(n1, n2) {
   return n1 + n2;
@@ -43,3 +50,5 @@ multiply = function(n1, n2) {
 divide = function(n1, n2) {
   return n1 / n2;
 }
+
+window.onload = init;
