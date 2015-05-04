@@ -1,16 +1,20 @@
+function $(id_selector) {
+  return document.getElementById(id_selector);
+}
+
 function init() {
   var firstNumber,
       secondNumber,
       operation;
   var result = 0;
-  var form = document.getElementById('form');
+  var form = $('form');
 
   form.onsubmit = function(e) {
     e.preventDefault();
-    var resultDisplay = document.getElementById('result');
-    var firstNumberInput = document.getElementById('firstNumber');
-    var secondNumberInput = document.getElementById('secondNumber');
-    var operationInput = document.getElementById('operation');
+    var resultDisplay = $('result');
+    var firstNumberInput = $('firstNumber');
+    var secondNumberInput = $('secondNumber');
+    var operationInput = $('operation');
     firstNumber = +firstNumberInput.value;
     secondNumber = +secondNumberInput.value;
     operation = operationInput.value;
@@ -26,7 +30,7 @@ function init() {
     }
 
     resultDisplay.setAttribute('style', 'display: block;');
-    document.getElementById('result').innerText = 'Result: ' + result;
+    resultDisplay.innerText = 'Result: ' + result;
 
     firstNumberInput.value = '';
     secondNumberInput.value = '';
