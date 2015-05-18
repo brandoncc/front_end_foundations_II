@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Airplane Orders</title>
+  </head>
+  <body>
+    <script>
+      function servePassengers(passengers) {
+        var getDrinkOrderFunctions = [];
+
+        for (var i = 0; i < passengers.length; i++) {
+          getDrinkOrderFunctions.push(createDrinkOrder(passengers[i]));
+        }
+
+        serveDrinks(getDrinkOrderFunctions);
+        passengers.forEach(getDinnerOrder);
+        serveDrinks(getDrinkOrderFunctions);
+        serveDrinks(getDrinkOrderFunctions);
+        // show movie
+        serveDrinks(getDrinkOrderFunctions);
+        // pick up trash
+      }
+
+      function serveDrinks(functions) {
+        for (var i = 0; i < functions.length; i++) {
+          functions[i]();
+        }
+      }
+
+      function createDrinkOrder(passenger) {
+        var orderFunction;
+
+        if (passenger.ticket === "firstclass") {
+          orderFunction = function() {
+            console.log("Would you like a cocktail or wine?");
+          };
+        } else if (passenger.ticket === "premium") {
+          orderFunction = function() {
+            console.log("Would you like wine, cola, or water?");
+          };
+        } else {
+          orderFunction = function() {
+            console.log("Your choice is cola or water.");
+          };
+        }
+        return orderFunction;
+      }
+
+      function getDinnerOrder(passenger) {
+        if (passenger.ticket === "firstclass") {
+          console.log("Would you like chicken or pasta?");
+        } else if (passenger.ticket === "premium") {
+          console.log("You get a choice of snack box or cheese plate.");
+        } else {
+          console.log("Hey, peanuts or pretzels?!");
+        }
+      }
+
+      var passengers = [
+        { name: "Jane Doloop", paid: true, ticket: "coach" },
+        { name: "Dr. Evel", paid: true, ticket: "firstclass" },
+        { name: "Sue Property", paid: false, ticket: "premium" },
+        { name: "John Funcall", paid: true, ticket: "coach" }
+      ];
+
+      servePassengers(passengers);
+    </script>
+  </body>
+</html>

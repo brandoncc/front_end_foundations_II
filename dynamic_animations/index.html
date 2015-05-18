@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="stylesheets/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="javascripts/animations.js"></script>
+  </head>
+  <body>
+    <div id="page">
+      <h1>Dynamic Animations</h1>
+      <main>
+        <div id="canvas">
+        </div>
+      </main>
+      <aside>
+        <h4>Controls</h4>
+        <a href="#" id="start-animation">Start</a> | <a href="#" id="stop-animation">Stop</a>
+        <h4>Add a shape</h4>
+        <form action="">
+          <fieldset>
+            <label><input type="radio" value="circle" name="shape"/> Circle</label>
+            <br />
+            <label><input type="radio" value="square" name="shape"/> Square</label>
+            <br />
+            <label><input type="radio" value="star" name="shape"/> Star</label>
+          </fieldset>
+          <fieldset>
+            <h5>Starting coordinates</h5>
+            <label>x <input type="number" id="starting-x" placeholder="0" /></label>
+            <label>y <input type="number" id="starting-y" placeholder="0" /></label>
+          </fieldset>
+          <fieldset>
+            <h5>Ending coordinates</h5>
+            <label>x <input type="number" id="ending-x" placeholder="0" /></label>
+            <label>y <input type="number" id="ending-y" placeholder="0" /></label>
+          </fieldset>
+          <input type="submit" value="Add shape" />
+          <input type="button" value="Add random shape" />
+        </form>
+      </aside>
+    </div>
+  </body>
+</html>

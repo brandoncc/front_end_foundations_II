@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Managing Collections</title>
+        <link rel="stylesheet" href="stylesheets/styles.css">
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="javascripts/orders.js"></script>
+    </head>
+    <body>
+      <main>
+        <h1>Inventory Order Form</h1>
+        <form action="">
+            <div id="shipping-info">
+              <fieldset>
+                  <dl>
+                      <dt>Date Ordered</dt>
+                      <dd id="order-date"></dd>
+                  </dl>
+              </fieldset>
+              <fieldset>
+                  <label for="requester-name">Requester Name</label>
+                  <input type="text" id="requester-name" name="requester-name">
+              </fieldset>
+              <h2>Shipping Address</h2>
+              <fieldset class="shipping-address">
+                  <label for="street-address-1">Street Address</label>
+                  <input type="text" name="street-address-1" id="street-address-1">
+                  <input type="text" name="street-addesss-2" id="street-address-2">
+              </fieldset>
+              <fieldset class="float">
+                  <label for="city">City</label>
+                  <input type="text" name="city" id="city">
+              </fieldset>
+              <fieldset class="float">
+                  <label for="state">State</label>
+                  <input type="text" name="state" id="state">
+              </fieldset>
+              <fieldset class="float">
+                  <label for="zipcode">Zip Code</label>
+                  <input type="text" name="zipcode" id="zipcode">
+              </fieldset>
+            </div>
+
+            <div>
+              <h2>Items to order</h2>
+              <ul id="items"></ul>
+            </div>
+
+            <button type="button" id="add-item">ADD ITEM</button>
+            <button type="submit" id="submit-order">ORDER INVENTORY</button>
+        </form>
+      </main>
+      <script type="text/template">
+        <li data-id="ID">
+          <fieldset class="float">
+            <label for="item-ID-name">Name</label>
+            <input type="text" id="item-ID-name" name="item-ID-name" class="name" value="NAME"></fieldset>
+          <fieldset class="float">
+            <label for="item-ID-stock-number">Stock Number</label>
+            <input type="text" id="item-ID-stock-number" name="item-ID-stock-number" class="stock-number" value="STOCK">
+          </fieldset>
+          <fieldset class="float">
+            <label for="item-ID-quantity">Quantity</label>
+            <input type="text" id="item-ID-quantity" name="item-ID-quantity" value="1" class="quantity" value="QUANTITY">
+          </fieldset>
+          <a href="#" class="remove">Delete</a>
+        </li>
+      </script>
+    </body>
+</html>

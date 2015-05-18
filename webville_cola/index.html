@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Webville Cola</title>
+  </head>
+  <body>
+    <script>
+      var products = [
+        { name: "Grapefruit", calories: 170, color: "red", sold: 8200 },
+        { name: "Orange", calories: 160, color: "orange", sold: 12101 },
+        { name: "Cola", calories: 210, color: "caramel", sold: 25412 },
+        { name: "Diet Cola", calories: 0, color: "caramel", sold: 25412 },
+        { name: "Lemon", calories: 200, color: "clear", sold: 14983 },
+        { name: "Raspberry", calories: 180, color: "pink", sold: 9427 },
+        { name: "Root Beer", calories: 200, color: "caramel", sold: 9909 },
+        { name: "Water", calories: 0, color: "clear", sold: 62123 }
+      ];
+
+      function compareSold(product1, product2) {
+        return product1.sold - product2.sold;
+      }
+
+      function compareName(product1, product2) {
+        if (product1.name.toLowerCase() > product2.name.toLowerCase()) {
+          return 1;
+        } else if (product1.name.toLowerCase() === product2.name.toLowerCase()) {
+          return 0;
+        } else {
+          return -1;
+        }
+      }
+
+      function compareCalories(product1, product2) {
+        return product1.calories - product2.calories;
+      }
+
+      function compareColor(product1, product2) {
+        if (product1.color.toLowerCase() > product2.color.toLowerCase()) {
+          return 1;
+        } else if (product1.color.toLowerCase() === product2.color.toLowerCase()) {
+          return 0;
+        } else {
+          return -1;
+        }
+      }
+
+      console.log("Sorted by name");
+      console.table(products.sort(compareName));
+
+      console.log("Sorted by calories");
+      console.table(products.sort(compareCalories));
+
+      console.log("Sorted by color");
+      console.table(products.sort(compareColor));
+
+      console.log("Sorted by sold");
+      console.table(products.sort(compareSold));
+    </script>
+  </body>
+</html>

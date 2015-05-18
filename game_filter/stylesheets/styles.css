@@ -1,0 +1,46 @@
+body {
+  font: normal 13px Helvetica, Arial, sans-serif;
+  background: #eee196;
+}
+
+main {
+  width: 80%;
+  float: right;
+}
+
+main li {
+  padding: 15px 20px;
+  display: none;
+}
+
+main li:hover {
+  background: #99f099
+}
+
+main li ~ li {
+  border-top: 1px solid #ececec;
+}
+
+main ul {
+  padding: 0 20px 20px 0;
+}
+
+aside {
+  padding: 70px 20px 0px;
+}
+
+aside ul {
+  padding: 0px;
+}
+
+ul {
+  list-style: none;
+}
+
+#page {
+  overflow: hidden;
+  width: 1000px;
+  border: 10px solid #eee196;
+  background: white;
+  margin: 0 auto;
+}
