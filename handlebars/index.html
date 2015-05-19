@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Handlebars Exercises</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="javascripts/handlebars-v3.0.3.js"></script>
+    <script src="javascripts/exercises.js"></script>
+    <style>
+      #posts article + article {
+        border-top: 1px dashed #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="posts">
+    </div>
+    <script type="text/x-handlebars" id="postTemplate">
+      {{#each posts}}
+      <article>
+        <h1>{{title}}</h1>
+        <span>{{date}} </span>
+        <br>
+        Tags:
+        {{#if tags}}
+          {{#each tags}}
+            {{> tag}}
+          {{/each}}
+        {{else}}
+          Not tagged
+        {{/if}}
+        <p>{{{body}}} </p>
+      </article>
+      {{/each}}
+    </script>
+
+    <script type="text/x-handlebars" id="tagTemplate">
+      <span>{{.}}</span>
+    </script>
+  </body>
+</html>
