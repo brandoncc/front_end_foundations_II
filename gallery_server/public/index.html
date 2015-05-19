@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Photo Gallery</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="javascripts/handlebars-v3.0.3.js"></script>
+    <script src="javascripts/gallery.js"></script>
+    <link href="stylesheets/gallery.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Brandon Conway's Photos</h1>
+    <main>
+      <div id="slideshow">
+        <div id="images">
+        </div>
+        <div id="image-caption">
+        </div>
+        <div id="controls">
+          <a class="prev" href="#"></a>
+          <a class="next" href="#"></a>
+        </div>
+      </div>
+      <div id="image-details">
+      </div>
+      <div>
+        <h2>Comments</h2>
+        <div id="comments">
+        </div>
+        <form id="new-comment">
+          <h3>Your Comment</h3>
+          <fieldset>
+          <label for="new-comment-name">Your Name</label>
+          <input type="text" id="new-comment-name" name="name">
+          </fieldset>
+          <fieldset>
+          <label for="new-comment-email">Email Address</label>
+          <input type="email" id="new-comment-email" name="email">
+          </fieldset>
+          <fieldset>
+          <label for="new-comment-body">Comment</label>
+          <textarea rows="5" cols="30" name="body"></textarea>
+          </fieldset>
+          <button type="submit" id="submit-comment">Post Comment</button>
+        </form>
+      </div>
+    </main>
+    <script type="text/x-handlebars" id="images-template">
+      {{#each images}}
+      {{> imageTemplate}}
+      {{/each}}
+    </script>
+    <script type="text/x-handlebars" id="image-template">
+      {{#if @index}}
+      <figure data-id="{{id}}" style="display: none;">
+      {{else}}
+      <figure data-id="{{id}}">
+      {{/if}}
+        <img src="{{src}}">
+      </figure>
+    </script>
+    <script type="text/x-handlebars" id="image-caption-template">
+      <figcaption>{{caption}}</figcaption>
+    </script>
+    <script type="text/x-handlebars" id="image-details-template">
+      <span id="social-buttons">
+        <button id="like">&#9825; {{likes}} Likes</button>
+        <button id="favorite">&star; {{favorites}} Favorites</button>
+      </span>
+      <h2 id="image-title">{{title}}</h2>
+      <span id="taken-date">Taken on {{created_at}}</span>
+    </script>
+    <script type=text/x-handlebars" id="comments-template">
+      {{#each comments}}
+      {{> commentTemplate}}
+      {{/each}}
+    </script>
+    <script type="text/x-handlebars" id="comment-template">
+      <article class="comment">
+        <div>
+          <img src="{{gravatar}}" class="commenter-gravatar">
+        </div>
+        <div>
+          <h3 class="commenter-name">{{name}}</h3>
+          <span class="comment-post-date small">Posted {{date}}</span>
+          <p>
+            {{body}}
+          </p>
+        </div>
+      </article>
+    </script>
+  </body>
+</html>
+
