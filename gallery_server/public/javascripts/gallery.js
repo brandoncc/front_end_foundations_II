@@ -4,7 +4,6 @@ $(function() {
     templates: {
       imageTemplate: null,
       imagesTemplate: null,
-      imageCaptionTemplate: null,
       imageDetailsTemplate: null,
       commentTemplate: null
     },
@@ -47,11 +46,7 @@ $(function() {
           })[0];
 
       this.displayComments(id);
-      this.displayCaption(image);
       this.displayPhotoDetails(image);
-    },
-    displayCaption: function(image) {
-      $('#image-caption').html(this.templates.imageCaptionTemplate(image));
     },
     displayPhotoDetails: function(image) {
       $('#image-details').html(this.templates.imageDetailsTemplate(image));
@@ -170,14 +165,12 @@ $(function() {
     compileTemplates: function() {
       var imagesTemplate = $('#images-template').html(),
           imageTemplate = $('#image-template').html(),
-          captionTemplate = $('#image-caption-template').html(),
           detailsTemplate = $('#image-details-template').html(),
           commentsTemplate = $('#comments-template').html(),
           commentTemplate = $('#comment-template').html();
 
       this.templates.imageTemplate = Handlebars.compile(imageTemplate),
       this.templates.imagesTemplate = Handlebars.compile(imagesTemplate),
-      this.templates.imageCaptionTemplate = Handlebars.compile(captionTemplate);
       this.templates.imageDetailsTemplate = Handlebars.compile(detailsTemplate);
       this.templates.commentsTemplate = Handlebars.compile(commentsTemplate);
       this.templates.commentTemplate = Handlebars.compile(commentTemplate);
