@@ -145,6 +145,8 @@ $(function() {
   $('#image-details').on('click', '#social-buttons a', function(e) {
     e.preventDefault();
 
+    var $target = $(e.target);
+
     $.ajax({
       url: $(e.target).attr('href'),
       data: {
@@ -154,12 +156,7 @@ $(function() {
       success: function(data) {
         var photo = slideshow.activePhotoObject();
 
-        if (this.url.match(/like$/)) {
-          photo.likes++;
-        } else {
-          photo.favorites++;
-        }
-
+        photo[$target.text().match(/[A-Z]+/i)[0].toLowerCase()] = data.total;
         displayPhotoDetails(photo);
       },
       error: function() {
