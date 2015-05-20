@@ -100,8 +100,8 @@ $(function() {
     $.ajax('/comments/new', {
       data: $.param(formData),
       method: 'post',
-      success: function() {
-        displayCommentsFor(slideshow.activePhotoId());
+      success: function(data) {
+        $('#comments').append(templates.commentTemplate(data));
         $('form#new-comment').get(0).reset();
       },
       error: function() {
