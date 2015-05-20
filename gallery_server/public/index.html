@@ -14,8 +14,6 @@
       <div id="slideshow">
         <div id="images">
         </div>
-        <div id="image-caption">
-        </div>
         <div id="controls">
           <a class="prev" href="#"></a>
           <a class="next" href="#"></a>
@@ -45,12 +43,12 @@
         </form>
       </div>
     </main>
-    <script type="text/x-handlebars" id="images-template">
+    <script type="text/x-handlebars" data-type="template" id="images-template">
       {{#each images}}
       {{> imageTemplate}}
       {{/each}}
     </script>
-    <script type="text/x-handlebars" id="image-template">
+    <script type="text/x-handlebars" data-type="partial" id="image-template">
       {{#if @index}}
       <figure data-id="{{id}}" style="display: none;">
       {{else}}
@@ -60,20 +58,20 @@
         <figcaption>{{caption}}</figcaption>
       </figure>
     </script>
-    <script type="text/x-handlebars" id="image-details-template">
+    <script type="text/x-handlebars" data-type="template" id="image-details-template">
       <span id="social-buttons">
-        <button id="like">&#9825; {{likes}} Likes</button>
-        <button id="favorite">&star; {{favorites}} Favorites</button>
+        <a href="/photos/like" id="like">&#9825; {{likes}} Likes</a>
+        <a href="/photos/favorite" id="favorite">&star; {{favorites}} Favorites</a>
       </span>
       <h2 id="image-title">{{title}}</h2>
       <span id="taken-date">Taken on {{created_at}}</span>
     </script>
-    <script type=text/x-handlebars" id="comments-template">
+    <script type="text/x-handlebars" data-type="template" id="comments-template">
       {{#each comments}}
       {{> commentTemplate}}
       {{/each}}
     </script>
-    <script type="text/x-handlebars" id="comment-template">
+    <script type="text/x-handlebars" data-type="partial" id="comment-template">
       <article class="comment">
         <div>
           <img src="{{gravatar}}" class="commenter-gravatar">

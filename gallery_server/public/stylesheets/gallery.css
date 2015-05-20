@@ -62,27 +62,24 @@ figcaption {
   margin-top: 5px;
 }
 
-#like {
+#social-buttons a {
   cursor: pointer;
   box-sizing: border-box;
-  background-color: #CCECFB;
-  color: #4C91B2;
-  border: none;
-  border-radius: 4px;
-  padding: 6px 10px 8px;
-  font: 16px normal Arial, Helvetica, sans-serif;
-}
-
-#favorite {
-  cursor: pointer;
-  margin-left: 5px;
-  box-sizing: border-box;
-  background-color: #A62280;
-  color: #FEE4FF;
   border: none;
   border-radius: 4px;
   padding: 10px;
   font: 16px normal Arial, Helvetica, sans-serif;
+}
+
+#like {
+  background-color: #CCECFB;
+  color: #4C91B2;
+}
+
+#favorite {
+  margin-left: 5px;
+  background-color: #A62280;
+  color: #FEE4FF;
 }
 
 #favorite:hover {
